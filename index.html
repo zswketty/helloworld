@@ -13,23 +13,49 @@
 </head>
 
 <body>
-    <h1>2017年8月13日09:27:13</h1>
-    <img src="../myfour/img/0.JPG" />
-    <img src="../myfour/img/0.JPG" />
+    <h1></h1>
+    <img class="demo" src="../myfour/img/0.JPG" alt="" />
+    <img class="demo" src="../myfour/img/0.JPG" alt="" />
     <img src="../myfour/img/colon.JPG" />
-    <img src="../myfour/img/0.JPG" />
-    <img src="../myfour/img/0.JPG" />
+    <img class="demo" src="../myfour/img/0.JPG" alt="" />
+    <img class="demo" src="../myfour/img/0.JPG" alt="" />
     <img src="../myfour/img/colon.JPG" />
-    <img src="../myfour/img/0.JPG" />
-    <img src="../myfour/img/0.JPG" />
+    <img class="demo" src="../myfour/img/0.JPG" alt="" />
+    <img class="demo" src="../myfour/img/0.JPG" alt="" />
 
 
 
 
 
     <script type="text/javascript">
-        var t = Date();
-        console.log(t);
+        function myfun() {
+            var d = new Date();
+            var year = d.getFullYear();
+            var month = d.getMonth();
+            var day = d.getDay();
+            var hour = d.getHours();
+            var minute = d.getMinutes();
+            var second = d.getSeconds();
+            var mydo = document.getElementsByClassName('demo');
+
+
+            var str = year + '年' + (month + 1) + '月' + day + '号' + hour + ':' + minute + ':' + second;
+            var strNew = ChangeTime(hour) + '' + ChangeTime(minute) + '' + ChangeTime(second); //转换为字符串
+            for (var i = 0; i < 6; i++) {
+                mydo[i].src = '../myfour/img/' + strNew.charAt(i) + '.JPG';
+            }
+            var geth1 = document.getElementsByTagName('h1');
+            geth1[0].innerHTML = str;
+            console.log(month);
+            console.log(day);
+
+
+            function ChangeTime(obj) {
+                return obj < 10 ? ('0' + obj) : obj;
+            }
+        }
+
+        setInterval(myfun, 1000);
     </script>
 
 </body>
